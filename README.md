@@ -1,9 +1,12 @@
 # bundler.io
+
+[![Middleman deploy](https://github.com/rubygems/bundler-site/actions/workflows/deploy.yml/badge.svg)](https://github.com/rubygems/bundler-site/deployments/activity_log?environment=github-pages)
+
 bundler.io is intended to serve as a convenient source for documentation on the [bundler](https://github.com/rubygems/rubygems) gem.
 
 The site bundler.io is a static site generated using [Middleman](http://middlemanapp.com/).
 
-[Bundler's manual pages](https://github.com/rubygems/rubygems/tree/master/bundler/man) document much of its functionality and serve as an important part of the site. They are included via the **Rakefile**.
+[Bundler's manual pages](https://github.com/rubygems/rubygems/tree/master/bundler/lib/bundler/man) document much of its functionality and serve as an important part of the site. They are included via the **Rakefile**.
 
 ## Development Set Up
 
@@ -14,27 +17,17 @@ Begin by cloning the repository onto your location machine:
 Once complete prepare the dependencies by running:
 
     bundle install
+    npm install
 
-### If you have trouble installing the `middleman-search` gem
+Or you can prepare a development environment on Gitpod cloud from the below link:
 
-`middleman-search` depends on the deprecated gem `therubyracer`, which depends
-on an obsolete version of `libv8`. They can be difficult to install.
-
-```
-gem install libv8 -v '3.16.14.19' -- --with-system-v8
-gem install therubyracer -v '0.12.3' --source 'https://rubygems.org/' -- --with-v8-dir=/usr/local/opt/v8@3.15
-```
-
-For further discussion, see https://gist.github.com/fernandoaleman/868b64cd60ab2d51ab24e7bf384da1ca
-
-There is an open PR to fix `middleman-search`:
-https://github.com/manastech/middleman-search/issues/18
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/rubygems/bundler-site)
 
 ## Basic Middleman Commands
 
 Fetch latest documentation from bundler repo (should be done before running local development web server):
 
-    rake man
+    bundle exec rake man
 
 Run a local development web server:
 
@@ -42,9 +35,9 @@ Run a local development web server:
 
 This will start a local web server running at: *http://localhost:4567*. It will serve the site as it exists in **/source**.
 
-To specify the host and/or port, add the -h, -p flag(s):
+To specify the host and/or port, add the --bind-address, -p flag(s):
 
-    bundle exec middleman -h 0.0.0.0 -p 8080
+    bundle exec middleman --bind-address 0.0.0.0 -p 8080
 
 Note: the development server will automatically reload pages when they or there associated stylesheets are modified. This feature is enabled in **config.rb**.
 

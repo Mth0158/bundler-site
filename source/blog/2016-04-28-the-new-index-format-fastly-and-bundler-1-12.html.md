@@ -3,7 +3,7 @@ title: The new index format, Fastly, and Bundler 1.12
 date: 2016-04-28 23:00 UTC
 tags:
 author: André Arko
-author_url: http://arko.net
+author_url: https://arko.net
 category: release
 ---
 
@@ -11,7 +11,7 @@ A new version of Bundler has arrived! With 1.12, we’re shipping one huge chang
 
 ## The new index format
 
-The biggest change landing in this release is [the fabled new index format](http://andre.arko.net/2014/03/28/the-new-rubygems-index-format/), which has been in development for over two years. It has required significant work on Bundler and the Bundler API webapp, but it also lays the foundation for years of speed, stability, and security. In addition to the speed increases provided by the format itself, we’re also serving the new index directly from the Fastly CDN. That means Bundler will be able to talk to a server located nearby, no matter where you are in the world. We expect that to make a huge difference, especially in Oceania and Africa. 🎉
+The biggest change landing in this release is [the fabled new index format](https://andre.arko.net/2014/03/28/the-new-rubygems-index-format/), which has been in development for over two years. It has required significant work on Bundler and the Bundler API webapp, but it also lays the foundation for years of speed, stability, and security. In addition to the speed increases provided by the format itself, we’re also serving the new index directly from the Fastly CDN. That means Bundler will be able to talk to a server located nearby, no matter where you are in the world. We expect that to make a huge difference, especially in Oceania and Africa. 🎉
 
 ## `exec` performance
 
@@ -29,8 +29,8 @@ Minor changes include adding support for Ruby 2.4, RubyGems 2.6.3, and support f
 
 ## Changelog
 
-We added a bunch of other small tweaks, features, and bugfixes, so be sure to check out [the changelog](https://github.com/bundler/bundler/blob/master/CHANGELOG.md) for the entire list!
+We added a bunch of other small tweaks, features, and bugfixes, so be sure to check out [the changelog](https://github.com/rubygems/rubygems/blob/master/bundler/CHANGELOG.md) for the entire list!
 
 ## Updating
 
-To get the newest version of Bundler, run `gem install bundler`. If you have any issues, please check out our [issues guide](https://github.com/bundler/bundler/blob/master/doc/contributing/ISSUES.md) and let us know!
+To get the newest version of Bundler, run `gem install bundler`. If you have any issues, please check out our [issues guide](https://github.com/rubygems/rubygems/issues/new?labels=Bundler&template=bundler-related-issue.md) and let us know!

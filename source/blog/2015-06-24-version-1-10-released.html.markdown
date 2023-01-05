@@ -3,7 +3,7 @@ title: Version 1.10 released
 date: 2015-06-24 05:36 UTC
 tags:
 author: André Arko
-author_url: http://arko.net
+author_url: https://arko.net
 category: release
 ---
 
@@ -17,15 +17,15 @@ This release comes with a bunch of new features: the `lock` command, support for
 
 First up, the new `lock` command. Running `bundle lock` will resolve the Gemfile and write a Gemfile.lock, but will not download or install any gems.
 
-Next, for single-file scripts that still depend on gems, a `gemfile` method is provided by `require "bundler/inline"`. This method will not generate a lock, so be careful what gem versions you allow! Check out the [inline docs](https://github.com/bundler/bundler/blob/master/lib/bundler/inline.rb) for details and examples.
+Next, for single-file scripts that still depend on gems, a `gemfile` method is provided by `require "bundler/inline"`. This method will not generate a lock, so be careful what gem versions you allow! Check out the [inline docs](https://github.com/rubygems/rubygems/blob/master/bundler/lib/bundler/inline.rb) for details and examples.
 
 Are you tired of being told to HTTParty hard? This option's for you. Run `bundle config ignore_messages.httparty true` to silence HTTParty for good, or run `bundle config ignore_messages true` to turn off all messages forever.
 
 Who needs a jetpack future when you can have optional groups? The long-requested ability to create groups of gems that are not installed by default is finally here. Mark a group as optional using `group :name, optional: true do`, and then opt in to installing an optional group with `bundle install --with name`.
 
-At the same time as adding the long-awaited optional groups, we added groups that can be installed (or not) completely automatically! Provide a lambda or proc to determine if gems in the `install_if` group should be installed, and they will be. Or not. For an example, check out the [Gemfile](/v1.10/man/gemfile.5.html#INSTALL_IF-install_if-) documentation. The idea for this feature came entirely from discussions with [Ruby Together members](https://rubytogether.org/members). If you'd like to see more features like this one, or even suggest some of your own, [join Ruby Together today](https://rubytogether.org/join).
+At the same time as adding the long-awaited optional groups, we added groups that can be installed (or not) completely automatically! Provide a lambda or proc to determine if gems in the `install_if` group should be installed, and they will be. Or not. For an example, check out the [Gemfile](/man/gemfile.5.html#INSTALL_IF) documentation. The idea for this feature came entirely from discussions with [Ruby Together members](https://rubytogether.org/members). If you'd like to see more features like this one, or even suggest some of your own, [join Ruby Together today](https://rubytogether.org/join).
 
-That's not all! There are several more smaller changes, including better support for gems with native extensions on RubyGems 2.2. Check out the full [1.10 changelog](https://github.com/bundler/bundler/blob/1-10-stable/CHANGELOG.md) for the entire list.
+That's not all! There are several more smaller changes, including better support for gems with native extensions on RubyGems 2.2. Check out the full [1.10 changelog](https://github.com/rubygems/bundler/blob/1-10-stable/CHANGELOG.md) for the entire list.
 
 ### BUNDLED WITH
 

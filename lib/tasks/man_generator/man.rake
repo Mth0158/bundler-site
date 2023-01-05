@@ -1,10 +1,10 @@
 desc "Pull in the man pages for the specified gem versions."
-task :man => [:update_vendor] do
+task man: :update_vendor do
   VERSIONS.each do |version|
     next if version == "v0.9"
 
     if version <= "v2.1"
-      branch = (version[1..-1].split('.') + %w(stable)).join('-')
+      branch = (version[1..-1].split(".") + %w(stable)).join("-")
       vendor_folder = "vendor/bundler"
       man_folder = "man"
     else
@@ -13,7 +13,7 @@ task :man => [:update_vendor] do
       man_folder = "lib/bundler/man"
     end
 
-    rm_rf "source/#{version}/man"
+    # v2.3 or later versions do not have `man` dir even after #922.
     mkdir_p "source/#{version}/man"
 
     Dir.chdir vendor_folder do
@@ -29,8 +29,4 @@ task :man => [:update_vendor] do
       Rake::Task["man:strip_pages"].execute("#{segments_up}/source/#{version}/man")
     end
   end
-
-  # Make man pages for the latest version available at the top level, too.
-  rm_rf "source/man"
-  cp_r "source/#{VERSIONS.last}/man", "source"
 end

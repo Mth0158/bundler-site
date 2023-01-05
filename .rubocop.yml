@@ -1,0 +1,30 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-rake
+
+AllCops:
+  DisabledByDefault: true
+
+Bundler/OrderedGems:
+  Enabled: true
+
+Layout/ArgumentAlignment:
+  Enabled: true
+
+Layout/TrailingWhitespace:
+  Enabled: true
+
+Rake:
+  Enabled: true
+  Include:
+    - "Rakefile"
+    - "**/*.rake"
+
+Style/HashSyntax:
+  EnforcedStyle: ruby19
+  EnforcedShorthandSyntax: never
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes

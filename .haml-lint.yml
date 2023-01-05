@@ -1,0 +1,31 @@
+skip_frontmatter: true
+
+linters:
+  InlineStyles:
+    exclude:
+      - "source/contributors.html.haml"
+      - "source/layouts/_navbar.haml"
+
+  LineLength:
+    max: 250
+
+  RuboCop:
+    enabled: true
+    ignored_cops:
+      - "Style/StringLiterals"
+
+  SpaceInsideHashAttributes:
+    exclude:
+      - "source/contributors.html.haml"
+      - "source/layouts/_favicon.haml"
+      - "source/layouts/_navbar.haml"
+      - "source/layouts/base.haml"
+      - "source/partials/_commands_sidebar.haml"
+      - "source/partials/_guides_sidebar.haml"
+
+  TagName:
+    exclude:
+      - "source/contributors.html.haml"
+
+  ViewLength:
+    max: 413

@@ -1,12 +1,12 @@
-require 'date'
-require 'erb'
-require 'pathname'
+require "date"
+require "erb"
+require "pathname"
 
-VERSIONS = Dir.chdir("source") { Dir.glob("v*").sort_by{|x| Gem::Version.new(x[1..-1]) } }.freeze
+require_relative "../versions"
 
 desc "Print the Bundler versions the site documents"
 task :versions do
-  puts VERSIONS.join(' ')
+  puts VERSIONS.join(" ")
 end
 
 namespace :versions do
@@ -16,7 +16,6 @@ namespace :versions do
     succ = VERSIONS.last.succ
     puts "Latest version is #{last}. Creating version #{succ}..."
     cp_r "source/#{last}", "source/#{succ}"
-    cp_r "source/localizable/#{last}", "source/localizable/#{succ}"
     puts "Creating empty What's New page..."
     render_whats_new(succ)
     puts "Creating announcement blog post..."
@@ -26,12 +25,12 @@ end
 
 def render_whats_new(full_version)
   version = full_version[1..-1]
-  version_slug = version.tr('.', '-')
+  version_slug = version.tr(".", "-")
   rubygems_version = Gem::Version.new(version).segments.map.with_index {|segment, i| i == 0 ? segment + 1 : segment }.join(".")
-  date_slug = Date.today.strftime('%Y/%m/%d')
+  date_slug = Date.today.strftime("%Y/%m/%d")
 
-  template = Pathname.new("../templates/whats_new.html.haml.erb").expand_path(__dir__)
+  template = Pathname.new("../templates/whats_new.html.md.erb").expand_path(__dir__)
   renderer = ERB.new(template.read)
-  whats_new = Pathname.new("../../source/#{full_version}/whats_new.html.haml").expand_path(__dir__)
+  whats_new = Pathname.new("../../source/#{full_version}/whats_new.html.md").expand_path(__dir__)
   File.write whats_new.to_s, renderer.result(binding)
 end

@@ -1,6 +1,5 @@
 ---
 title: "January and February Bundler Update"
-date: 2019-03-12
 tags:
 author: Stephanie Morillo
 ---
@@ -36,7 +35,7 @@ The following is a non extensive list of the stuff I've been focusing on:
 
 * I continued the work on bundler's deprecations. I reviewed each deprecation and made sure the messages are actionable, they show up when they should, and they have passing specs. In particular, I made a plan for the deprecation of the changes that are most likely to be controversial and require special care. For example, I proposed to deprecate sticky options, and custom gemfile sources (such as :github, :gist, or :bitbucket), in a smoother process that should be more friendly to our users because it happens in several steps across multiple major versions. Finally, I made sure that we use non-deprecated features in our own specs, in order to set a good example :)
 * In addition to deprecations, I also finished the work that I mentioned in [the previous report]() about only reporting warnings and not hard errors when we find a mismatch between the running bundler version and the version the Gemfile was created with. I hope to release these changes in both rubygems and bundler soon.
-* I also continued to improve the integration of bundler into ruby-core. I proposed to [eliminate the `git` dependency from bundler's gemspec](https://github.com/bundler/bundler/pull/6985) (which has caused problems with the integration), and raised [an issue](https://bugs.ruby-lang.org/issues/15610) with ruby-core about where the default copies of bundler & rubygems should live, and how they should get updated. I'm in touch with hsbt and we plan to discuss the future of this integration some time in the near future.
+* I also continued to improve the integration of bundler into ruby-core. I proposed to [eliminate the `git` dependency from bundler's gemspec](https://github.com/rubygems/bundler/pull/6985) (which has caused problems with the integration), and raised [an issue](https://bugs.ruby-lang.org/issues/15610) with ruby-core about where the default copies of bundler & rubygems should live, and how they should get updated. I'm in touch with hsbt and we plan to discuss the future of this integration some time in the near future.
 * Finally, I've been working on making our specs "docker friendly", and making bundler testable under bare docker images of ruby and rvm. My understanding is that this should make it much easier to reproduce CI failures (or user reported bugs), and to detect version manager specific regressions (or ruby-core integration bugs). Besides that, testing on top of custom docker images is something provided built-in by Azure pipelines, so it's a good opportunity to try it.
 
 As I mentioned in the previous report, I'm very glad to be working on bundler during these weeks. Any suggestions or feedback you may have, feel free to share them through Github, Slack or whatever means you like!
@@ -48,4 +47,4 @@ In January and February, Bundler gained 110 new commits, contributed by 11 autho
 
 ---
 
-Interested in contributing to Bundler? We always welcome contributions in the forms of triaging bugs, adding new features, writing docs, and engaging with the wider community. Visit the [Bundler Contributor Guidelines](https://github.com/bundler/bundler/blob/master/doc/contributing/README.md) on GitHub to get started. Don’t have time to contribute, but want to support our work? Sign up as a member of [Ruby Together](https://rubytogether.org/) to help fund our work to keep Bundler working for everyone.
+Interested in contributing to Bundler? We always welcome contributions in the forms of triaging bugs, adding new features, writing docs, and engaging with the wider community. Visit the [Bundler Contributor Guidelines](https://github.com/rubygems/rubygems/blob/master/bundler/doc/contributing/README.md) on GitHub to get started. Don’t have time to contribute, but want to support our work? Sign up as a member of [Ruby Together](https://rubytogether.org/) to help fund our work to keep Bundler working for everyone.
